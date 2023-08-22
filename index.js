@@ -2,6 +2,7 @@
 const express = require("express");
 const authRouter = require("./routes/auth");
 const mongoose = require("mongoose");
+const adminRouter = require("./routes/admin");
 
 // INIT
 const app = express();
@@ -12,6 +13,7 @@ const DB =
 // MIDDLEWARE
 app.use(express.json());
 app.use(authRouter);
+app.use(adminRouter);
 
 // DB Connection
 mongoose.connect(DB).then(console.log("Successful Connection"));
